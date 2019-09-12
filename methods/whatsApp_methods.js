@@ -28,7 +28,7 @@ const fetch_announcements = async course_id =>{
         
             const page    = await browser.newPage();
             
-            console.log('%c Creating page...', 'color:green');
+            console.log('Creating page...');
 
             await page.goto(urls.login_url);
         
@@ -94,11 +94,14 @@ const sign_into = async page =>{
     
 }
 
+const throw_error = (client, user) => client.sendText(user, 'Hmm. Something went wrong!');
+
 Array.prototype.flat = function(){
     return this.map(e=>[].concat.apply([],e))
 }
 
 module.exports = {
     fetch_announcements,
+    throw_error
 }
 
